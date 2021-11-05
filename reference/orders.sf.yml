@@ -190,7 +190,7 @@ definitions:
     type: object
     properties:
       coupon:
-        type: integer
+        type: number
         description: 'Property key is discount ID, value is discount amount.'
         example: 8.28
   OrderLineItem:
