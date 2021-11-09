@@ -95,7 +95,13 @@ paths:
       operationId: getAnOrder
     put:
       description: |-
-        Updates an *Order*. To remove a product from an order, set that product's `quantity` to `0`.
+        Updates an *Order*. 
+
+        To add a product to an existing order, don't include `id` in the body. Include `product_options` if adding a product with variants.
+
+        To update a product in an order, include `id` in the body. The body should only contain the fields that need to be updated. Those fields that are omitted will not be changed.
+
+        To remove a product from an order, set that product's `quantity` to `0`.
 
         To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
       summary: Update an Order
@@ -4325,7 +4331,7 @@ components:
           properties:
             id:
               type: integer
-              description: 'The order product `id`. To add a product to an existing order, don''t include `id ` in the payload. `id` is required when updating an order product.'
+              description: 'The order product `id`. To add a product to an existing order, don''t include `id` in the payload. `id` is required when updating an order product.'
         - $ref: '#/components/schemas/orderCatalogProduct_Post'
     orderCatalogProduct_Post:
       title: orderCatalogProduct_Post
